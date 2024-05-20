@@ -4,7 +4,11 @@ import "fmt"
 
 func main() {
 
-	sorted := insertionSort([]int{
+	//sorted := insertionSort([]int{
+	//	5, 2, 4, 6, 1, 3,
+	//}, 6)
+
+	sorted := selectionSort([]int{
 		5, 2, 4, 6, 1, 3,
 	}, 6)
 
@@ -18,6 +22,17 @@ func insertionSort(A []int, n int) []int {
 
 				//Moving left to right and right to left in sequential order
 				A[j-1], A[j] = A[j], A[j-1]
+			}
+		}
+	}
+	return A
+}
+
+func selectionSort(A []int, n int) []int {
+	for i := 0; i < n; i++ {
+		for j := i; j < n; j++ {
+			if A[j] < A[i] {
+				A[i], A[j] = A[j], A[i]
 			}
 		}
 	}
